@@ -29,9 +29,8 @@ export default todoReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case ADD_TODO:
-            let id = state.todos.length
             let todo = {
-                id: id,
+                id: state.todos.length,
                 text: action.todo.text,
                 completed: action.todo.completed
             }
@@ -46,17 +45,15 @@ export default todoReducer = (state = initialState, action) => {
             let indexToUpdate = state.todos.findIndex((todo) => todo.id == action.todo.id);
             state.todos[indexToUpdate] = action.todo;
             return {
-                ...state,
-                todos: state.todos,
+                todos: [...state.todos],
             }
 
         case DELETE_TODO:
-            state.todos = state.todos.filter((todo) => todo.id !== action.todo.id);
             return {
-                todos: state.todos
+                todos: state.todos.filter((todo) => todo.id !== action.todo.id)
             }
 
         default:
-            return state.todos;
+            return state;
     }
 }

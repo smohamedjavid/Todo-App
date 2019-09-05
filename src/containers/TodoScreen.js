@@ -6,13 +6,13 @@ import TodoItem from '../components/TodoItem';
 import NewTodo from '../components/NewTodo';
 import { addTodo, deleteTodo, updateTodo } from '../../store/actions/todoActions';
 
-filterTodosByScreen = (screen, todos) => {
+const filterTodosByScreen = (screen, todos) => {
   if (screen == "Active") {
-    return todos.filter(function (todo) {
+    return todos.filter((todo) => {
       return !todo.completed;
     })
   } else if (screen == "Completed") {
-    return todos.filter(function (todo) {
+    return todos.filter((todo) => {
       return todo.completed;
     })
   } else {

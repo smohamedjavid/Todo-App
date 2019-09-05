@@ -3,7 +3,7 @@ import * as types from '../store/actions/types';
 
 describe('todos reducer', () => {
     it('should return the initial state', () => {
-        expect(reducer(undefined, {})).toEqual(
+        expect(reducer(undefined, {})).toEqual({ "todos":
             [
                 {
                     id: 0,
@@ -25,7 +25,7 @@ describe('todos reducer', () => {
                     text: "Build a tree house",
                     completed: false
                 }
-            ])
+            ]})
     })
 
     it('should handle ADD_TODO', () => {
